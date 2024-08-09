@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ github.token }}
+        
       - name: update
         uses: appleboy/ssh-action@master
         with:
