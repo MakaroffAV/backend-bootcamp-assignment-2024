@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  db:
+    image:
+      postgres
+    ports:
+      - "20500:5432"
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    networks:
+      - some_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d ips -U makarov"]
+      retries: 5
+      timeout: 5s
+      interval: 10s
+    environment:
+      - POSTGRES_DB=bootcamp
+      - POSTGRES_USER=makarov
+      - POSTGRES_PASSWORD=simplePassword
+
+volumes:
+  db_volume:
+
+networks:
+  some_network:
+    name: some_network
+    driver: bridge
+
