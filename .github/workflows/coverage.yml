@@ -66,6 +66,7 @@ jobs:
             echo $COVERAGE
 
             echo "percent=${COVERAGE}" >> $GITHUB_ENV
+            cat "$GITHUB_ENV"
 
       - name: Configure git
         run: |
