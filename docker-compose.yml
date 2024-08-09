@@ -34,7 +34,7 @@ services:
     environment:
       - PDB_HOST=db
       - PDB_NAME=bootcamp
-      - PDB_PORT=20500
+      - PDB_PORT=5432
       - PDB_USER=makarov
       - PDB_PASS=simplePassword
 
