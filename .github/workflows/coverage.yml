@@ -38,6 +38,16 @@ jobs:
 
             goose -dir ./migrations postgres "postgresql://makarov:simplePassword@localhost:20500/bootcamp?sslmode=disable" up
 
+      - name: coverage
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_VPS_IP }}
+          username: ${{ secrets.PROD_VPS_USER }}
+          password: ${{ secrets.PROD_VPS_PASS }}
+
+          script: |
+            cd /avito/backend-bootcamp-assignment-2024
+
             go test ./... -coverprofile coverage.out
             COVERAGE=`go tool cover -func=coverage.out | grep total: | grep -Eo '[0-9]+\.[0-9]+'`
             echo $COVERAGE
