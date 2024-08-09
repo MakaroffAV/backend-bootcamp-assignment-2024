@@ -74,6 +74,7 @@ jobs:
       - name: set_coverage_badge
         run: |
           git checkout -b badge
+          git pull
           
           echo ${{ steps.cvg.outputs.percent }}
           curl "https://img.shields.io/badge/coverage-${{ steps.cvg.outputs.percent }}%25-blue" > badge.svg
