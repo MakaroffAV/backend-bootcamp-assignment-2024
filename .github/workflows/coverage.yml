@@ -79,7 +79,7 @@ jobs:
           git pull
           git merge origin/main --no-edit
           
-          echo ${{ steps.test-coverage-percent.outputs.PERCENT }}
+          echo ${{ steps.test-coverage-percent.outcome }}
           curl "https://img.shields.io/badge/coverage-${{ steps.test-coverage-percent.outputs.PERCENT }}%25-blue" > badge.svg
           
           git add .
