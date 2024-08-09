@@ -36,8 +36,8 @@ jobs:
             export GOPATH=$HOME/go
             export PATH=$PATH:$GOROOT/bin:$GOPATH/binexport GOPATH=$HOME/goexport PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-            ls
-            pwd
-            curl "localhost:20500"
-
             goose -dir ./migrations postgres "postgresql://makarov:simplePassword@localhost:20500/bootcamp?sslmode=disable" up
+
+            go test ./... -coverprofile coverage.out
+            COVERAGE=`go tool cover -func=coverage.out | grep total: | grep -Eo '[0-9]+\.[0-9]+'`
+            echo $COVERAGE
