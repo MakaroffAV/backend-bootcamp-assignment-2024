@@ -1,4 +1,4 @@
-![Build](https://github.com/MakaroffAV/backend-bootcamp-assignment-2024/actions/workflows/build.yml/badge.svg?branch=main)
+![GoBuild](https://github.com/MakaroffAV/backend-bootcamp-assignment-2024/actions/workflows/build.yml/badge.svg?branch=main)
 
 # [Основная проблема](#ОСНОВНАЯ-ПРОБЛЕМА)
 > Номер квартиры не является уникальным идентификатором. Например, квартира №1 может находиться как в доме №1, так и в доме №2, и в этом случае это будут разные квартиры.
