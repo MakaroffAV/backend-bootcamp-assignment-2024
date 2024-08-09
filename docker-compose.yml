@@ -6,6 +6,8 @@ services:
       postgres
     ports:
       - "20500:5432"
+    volumes:
+      - /avito_data/db:/var/lib/postgresql/data/
     networks:
       - some_network
     healthcheck:
@@ -31,8 +33,8 @@ services:
         condition: service_healthy
     environment:
       - PDB_HOST=db
-      - PDB_NAME=ips
-      - PDB_PORT=5432
+      - PDB_NAME=bootcamp
+      - PDB_PORT=20500
       - PDB_USER=makarov
       - PDB_PASS=simplePassword
 
