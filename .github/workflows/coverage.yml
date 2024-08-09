@@ -19,7 +19,6 @@ jobs:
           script: |
             cd /avito/backend-bootcamp-assignment-2024
             git pull
-
             docker-compose down
 
       - name: database 
@@ -29,16 +28,12 @@ jobs:
           username: ${{ secrets.PROD_VPS_USER }}
           password: ${{ secrets.PROD_VPS_PASS }}
 
-          script:
+          script: |
             cd /avito/backend-bootcamp-assignment-2024
-
             docker-compose up db --build -d
-
             export GOPATH=$HOME/go
             export PATH=$PATH:$GOROOT/bin:$GOPATH/binexport GOPATH=$HOME/goexport PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
             goose -dir ./migrations postgres "postgresql://makarov:simplePassword@localhost:20500/bootcamp?sslmode=disable" up
-
             go test -coverprofile=coverage.out ./...
             go tool cover -func=coverage.out -o coverage.txt
 
