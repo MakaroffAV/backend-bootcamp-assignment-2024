@@ -43,7 +43,6 @@ func main() {
 		panic(err)
 	}
 	defer c.Close()
-	r := 2
 
 	var wg sync.WaitGroup
 
