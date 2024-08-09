@@ -43,7 +43,7 @@ jobs:
             goose -dir ./migrations postgres "postgresql://makarov:simplePassword@localhost:20500/bootcamp?sslmode=disable" up
 
       - name: coverage
-        id: test-coverage-percent
+        id: cvg
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.PROD_VPS_IP }}
@@ -64,7 +64,7 @@ jobs:
             go test ./... -coverprofile coverage.out
             COVERAGE=`go tool cover -func=coverage.out | grep total: | grep -Eo '[0-9]+\.[0-9]+'`
             echo $COVERAGE
-            echo "PERCENT=$COVERAGE" >> $env:GITHUB_OUTPUT
+            echo "percent=$COVERAGE" >> $GITHUB_OUTPUT
 
       - name: Configure git
         run: |
@@ -73,16 +73,12 @@ jobs:
 
       - name: set_coverage_badge
         run: |
-          git fetch
           git checkout -b badge
-
-          git pull
-          git merge origin/main --no-edit
           
-          echo ${{ steps.test-coverage-percent.outputs }}
+          echo ${{ steps.cvg.outputs.percent }}
           curl "https://img.shields.io/badge/coverage-${{ steps.test-coverage-percent.outputs.PERCENT }}%25-blue" > badge.svg
           
           git add .
           git commit -m "added badge"
-          git push 
+          git push -u origin badge
 
