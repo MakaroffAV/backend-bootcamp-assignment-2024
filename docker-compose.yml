@@ -6,8 +6,6 @@ services:
       postgres
     ports:
       - "20500:5432"
-    volumes:
-      - db_volume:/var/lib/postgresql/data
     networks:
       - some_network
     healthcheck:
@@ -19,9 +17,6 @@ services:
       - POSTGRES_DB=bootcamp
       - POSTGRES_USER=makarov
       - POSTGRES_PASSWORD=simplePassword
-
-volumes:
-  db_volume:
 
 networks:
   some_network:
