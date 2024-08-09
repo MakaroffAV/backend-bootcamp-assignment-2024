@@ -3,7 +3,6 @@ package sender
 import (
 	"context"
 	"errors"
-	"fmt"
 	"math/rand"
 	"time"
 )
@@ -16,7 +15,8 @@ func New() *Sender {
 
 func (s *Sender) SendEmail(ctx context.Context, recipient string, message string) error {
 	// Имитация отправки сообщения
-	duration := time.Duration(rand.Int63n(3000)) * time.Millisecond
+	// немного изменил время ожидания, чтобы не было таймаута теста
+	duration := time.Duration(rand.Int63n(10)) * time.Millisecond
 	time.Sleep(duration)
 
 	// Имитация неуспешной отправки сообщения
@@ -25,7 +25,8 @@ func (s *Sender) SendEmail(ctx context.Context, recipient string, message string
 		return errors.New("internal error")
 	}
 
-	fmt.Printf("send message '%s' to '%s'\n", message, recipient)
+	// зачем????
+	// fmt.Printf("send message '%s' to '%s'\n", message, recipient)
 
 	return nil
 }
