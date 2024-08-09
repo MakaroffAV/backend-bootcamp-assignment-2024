@@ -20,7 +20,6 @@ jobs:
           script: |
             cd /avito/backend-bootcamp-assignment-2024
             git pull
-            docker-compose down
 
       - name: database
         uses: appleboy/ssh-action@master
