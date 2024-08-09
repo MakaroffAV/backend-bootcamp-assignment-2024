@@ -37,4 +37,7 @@ jobs:
             export GOPATH=$HOME/go
             export PATH=$PATH:$GOROOT/bin:$GOPATH/binexport GOPATH=$HOME/goexport PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
+            ls
+            pwd
+
             goose -dir ./migrations postgres "postgresql://makarov:simplePassword@localhost:20500/bootcamp?sslmode=disable" up
