@@ -84,5 +84,5 @@ jobs:
           
           git add .
           git commit -m "added badge"
-          git push -u origin badge
+          git push -u origin badge --force
 
