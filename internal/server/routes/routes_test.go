@@ -17,7 +17,7 @@ func TestGet(t *testing.T) {
 	defer c.Close()
 
 	var (
-		n = 8
+		n = 7
 	)
 
 	var (
@@ -38,7 +38,7 @@ func TestGet(t *testing.T) {
 	r := Get(servFlat, servHouse, servLogin, servToken, servRegister)
 	if len(r) != n {
 		t.Fatalf(
-			"case: %d; got: %d; want: %d; \n", len(r), 8, n,
+			"case: %d; got: %d; want: %d; \n", 1, len(r), n,
 		)
 	}
 }
