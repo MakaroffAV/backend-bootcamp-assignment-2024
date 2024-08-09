@@ -78,7 +78,7 @@ jobs:
           direction: download
           host: ${{ secrets.PROD_VPS_IP }}
           username: ${{ secrets.PROD_VPS_USER }}
-          password: ${{ secrets.PROD_VPS_PASS }}
+          insecure_password: ${{ secrets.PROD_VPS_PASS }}
           
           source: /avito/backend-bootcamp-assignment-2024/badge.svg
           target: ./badge.svg
