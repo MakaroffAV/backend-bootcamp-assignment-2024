@@ -76,7 +76,7 @@ jobs:
           git checkout -b badge
           
           echo ${{ steps.cvg.outputs.percent }}
-          curl "https://img.shields.io/badge/coverage-${{ steps.test-coverage-percent.outputs.PERCENT }}%25-blue" > badge.svg
+          curl "https://img.shields.io/badge/coverage-${{ steps.cvg.outputs.percent }}%25-blue" > badge.svg
           
           git add .
           git commit -m "added badge"
