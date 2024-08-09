@@ -79,11 +79,11 @@ jobs:
           git checkout -b badge
           git fetch origin badge
 
-          echo "here"
+          echo here 
           echo $PERCENT
           echo "here"
 
-          curl "https://img.shields.io/badge/coverage-${{ steps.cvg.outputs.percent }}%25-blue" > badge.svg
+          curl "https://img.shields.io/badge/coverage-$PERCENT%25-blue" > badge.svg
           
           git add .
           git commit -m "added badge"
