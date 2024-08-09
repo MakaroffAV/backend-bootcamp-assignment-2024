@@ -65,6 +65,7 @@ jobs:
       - name: set_coverage_badge
         run: |
           git fetch
+          
           git checkout badge -f
           git pull
           git merge origin/main --no-edit
