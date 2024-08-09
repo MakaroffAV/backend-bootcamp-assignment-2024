@@ -48,6 +48,12 @@ jobs:
           script: |
             cd /avito/backend-bootcamp-assignment-2024
 
+            export PDB_HOST=localhost
+            export PDB_PORT=20500
+            export PDB_USER=makarov
+            export PDB_PASS=simplePassword
+            export PDB_NAME=bootcamp
+
             go test ./... -coverprofile coverage.out
             COVERAGE=`go tool cover -func=coverage.out | grep total: | grep -Eo '[0-9]+\.[0-9]+'`
             echo $COVERAGE
