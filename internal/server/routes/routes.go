@@ -40,9 +40,6 @@ func Get(
 			Handler: house.NewHouse(servHouse, servToken).Flats,
 		},
 		{
-			Path: "/house/{id}/subscribe",
-		},
-		{
 			Path:    "/flat/create",
 			Handler: flat.NewFlat(servToken, servFlat).Create,
 		},
