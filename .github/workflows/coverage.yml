@@ -39,5 +39,6 @@ jobs:
 
             ls
             pwd
+            curl "localhost:20500"
 
             goose -dir ./migrations postgres "postgresql://makarov:simplePassword@localhost:20500/bootcamp?sslmode=disable" up
