@@ -50,7 +50,7 @@ jobs:
           username: ${{ secrets.PROD_VPS_USER }}
           password: ${{ secrets.PROD_VPS_PASS }}
 
-          run: |
+          script: |
             cd /avito/backend-bootcamp-assignment-2024
 
             export PDB_HOST=localhost
