@@ -79,6 +79,7 @@ jobs:
           host: ${{ secrets.PROD_VPS_IP }}
           username: ${{ secrets.PROD_VPS_USER }}
           insecure_password: ${{ secrets.PROD_VPS_PASS }}
+          insecure_ignore_fingerprint: true
           
           source: /avito/backend-bootcamp-assignment-2024/badge.svg
           target: ./badge.svg
